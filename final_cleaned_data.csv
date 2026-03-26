@@ -1,0 +1,57 @@
+import pandas as pd
+
+# Sample: Load your dataset (change file name if needed)
+df = pd.read_csv("cleaned_disaster_data.csv")
+
+print("\n🔹 Original Columns:")
+print(df.columns)
+
+# -----------------------------------------
+# (1) Rename columns (remove spaces)
+# -----------------------------------------
+df.columns = df.columns.str.strip().str.replace(" ", "_")
+
+print("\n✅ Columns after renaming:")
+print(df.columns)
+
+# -----------------------------------------
+# (2) Fill missing numeric values with 0
+# -----------------------------------------
+numeric_cols = df.select_dtypes(include=['number']).columns
+df[numeric_cols] = df[numeric_cols].fillna(0)
+
+print("\n✅ Missing numeric values filled with 0")
+
+# -----------------------------------------
+# (3) Convert Year column to integer
+# -----------------------------------------
+if "Year" in df.columns:
+    df["Year"] = df["Year"].astype(int)
+
+print("\n✅ Year column converted to integer")
+
+# -----------------------------------------
+# (4) Add severity_level column
+# -----------------------------------------
+def get_severity(deaths):
+    if deaths > 1000:
+        return "High"
+    elif deaths >= 100:
+        return "Medium"
+    else:
+        return "Low"
+
+# Ensure correct column name after renaming
+if "Total_Deaths" in df.columns:
+    df["severity_level"] = df["Total_Deaths"].apply(get_severity)
+
+print("\n✅ severity_level column added")
+
+# -----------------------------------------
+# Final Data Info
+# -----------------------------------------
+print("\n📊 Final DataFrame Info:")
+print(df.info())
+
+print("\n🔍 Preview:")
+print(df.head())
