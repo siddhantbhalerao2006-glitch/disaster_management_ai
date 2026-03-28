@@ -1,0 +1,22 @@
+{
+    "disaster": {
+        "type": "Flood",
+        "severity": "Critical",
+        "location": [
+            19.08,
+            72.88
+        ]
+    },
+    "resources": {
+        "water_liters": 2100000,
+        "food_packets": 700000,
+        "medical_kits": 2000,
+        "shelter_tents": 20000,
+        "rescue_vehicles": 10
+    },
+    "nearest_warehouse": {
+        "name": "Thane",
+        "distance_km": 17.23
+    },
+    "delivery_eta": "2 hr 17 min"
+}
