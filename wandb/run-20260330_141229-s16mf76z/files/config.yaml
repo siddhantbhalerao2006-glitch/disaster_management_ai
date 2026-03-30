@@ -1,0 +1,42 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            7190j2r0z97isq67zl2ojalywr64yefo:
+                codePath: train_and_save_model.py
+                codePathLocal: train_and_save_model.py
+                email: siddhantbhalerao2006@gmail.com
+                executable: C:\Users\Siddhani\Desktop\ASEP 2 clude ai\disaster_management_a\.venv\Scripts\python.exe
+                git:
+                    commit: 2d3b89e919343b4e579673ca05ad495ebb1d888c
+                    remote: https://github.com/siddhantbhalerao2006-glitch/disaster_management_ai.git
+                host: siddhant
+                os: Windows-11-10.0.26200-SP0
+                program: C:\Users\Siddhani\Desktop\ASEP 2 clude ai\disaster_management_a\train_and_save_model.py
+                python: CPython 3.14.2
+                root: C:\Users\Siddhani\Desktop\ASEP 2 clude ai\disaster_management_a
+                startedAt: "2026-03-30T08:42:29.722816Z"
+                writerId: 7190j2r0z97isq67zl2ojalywr64yefo
+        m: []
+        python_version: 3.14.2
+        t:
+            "1":
+                - 5
+                - 53
+            "2":
+                - 5
+                - 53
+            "3":
+                - 16
+            "4": 3.14.2
+            "5": 0.25.1
+            "8":
+                - 3
+            "12": 0.25.1
+            "13": windows-amd64
+max_depth:
+    value: 10
+n_estimators:
+    value: 100
+test_size:
+    value: 0.2

@@ -173,4 +173,4 @@ def main():
     elif st.session_state.nav == "inventory":
         st.info("Inventory page (you can expand this)")
 
-main()
+main()   

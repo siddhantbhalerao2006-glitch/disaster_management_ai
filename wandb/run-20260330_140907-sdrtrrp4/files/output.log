@@ -1,0 +1,7 @@
+disaster_type
+Flood         10
+Cyclone        5
+Earthquake     3
+Name: count, dtype: int64
+✅ Done
+Accuracy: 0.5

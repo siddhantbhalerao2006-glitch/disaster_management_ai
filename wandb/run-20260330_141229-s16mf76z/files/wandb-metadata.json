@@ -1,0 +1,17 @@
+{
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "CPython 3.14.2",
+  "startedAt": "2026-03-30T08:42:29.722816Z",
+  "program": "C:\\Users\\Siddhani\\Desktop\\ASEP 2 clude ai\\disaster_management_a\\train_and_save_model.py",
+  "codePath": "train_and_save_model.py",
+  "codePathLocal": "train_and_save_model.py",
+  "git": {
+    "remote": "https://github.com/siddhantbhalerao2006-glitch/disaster_management_ai.git",
+    "commit": "2d3b89e919343b4e579673ca05ad495ebb1d888c"
+  },
+  "email": "siddhantbhalerao2006@gmail.com",
+  "root": "C:\\Users\\Siddhani\\Desktop\\ASEP 2 clude ai\\disaster_management_a",
+  "host": "siddhant",
+  "executable": "C:\\Users\\Siddhani\\Desktop\\ASEP 2 clude ai\\disaster_management_a\\.venv\\Scripts\\python.exe",
+  "writerId": "7190j2r0z97isq67zl2ojalywr64yefo"
+}

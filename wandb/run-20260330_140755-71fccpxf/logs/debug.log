@@ -1,0 +1,13 @@
+2026-03-30 14:07:55,601 INFO    MainThread:15436 [wandb_setup.py:_flush():81] Current SDK version is 0.25.1
+2026-03-30 14:07:55,602 INFO    MainThread:15436 [wandb_setup.py:_flush():81] Configure stats pid to 15436
+2026-03-30 14:07:55,602 INFO    MainThread:15436 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-03-30 14:07:55,602 INFO    MainThread:15436 [wandb_init.py:setup_run_log_directory():717] Logging user logs to C:\Users\Siddhani\Desktop\ASEP 2 clude ai\disaster_management_a\wandb\run-20260330_140755-71fccpxf\logs\debug.log
+2026-03-30 14:07:55,602 INFO    MainThread:15436 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to C:\Users\Siddhani\Desktop\ASEP 2 clude ai\disaster_management_a\wandb\run-20260330_140755-71fccpxf\logs\debug-internal.log
+2026-03-30 14:07:55,609 INFO    MainThread:15436 [wandb_init.py:init():844] calling init triggers
+2026-03-30 14:07:55,609 INFO    MainThread:15436 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'n_estimators': 200, 'max_depth': 15, 'test_size': 0.3, '_wandb': {}}
+2026-03-30 14:07:55,609 INFO    MainThread:15436 [wandb_init.py:init():892] starting backend
+2026-03-30 14:07:57,890 INFO    MainThread:15436 [wandb_init.py:init():895] sending inform_init request
+2026-03-30 14:07:57,950 INFO    MainThread:15436 [wandb_init.py:init():903] backend started and connected
+2026-03-30 14:07:57,973 INFO    MainThread:15436 [wandb_init.py:init():973] updated telemetry
+2026-03-30 14:07:58,043 INFO    MainThread:15436 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
