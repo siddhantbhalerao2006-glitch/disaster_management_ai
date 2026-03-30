@@ -9,21 +9,44 @@ import numpy as np
 # ─────────────────────────────────────────────
 st.set_page_config(
     page_title="DisasterNet — Relief Command",
-    page_icon="🛡️",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
 # ─────────────────────────────────────────────
-# SESSION STATE
+# SESSION STATE (GENERATE 1000 PEOPLE DATA WITH NAMES)
 # ─────────────────────────────────────────────
 if "pending_requests" not in st.session_state:
-    st.session_state.pending_requests = pd.DataFrame([
-        {"ID":"REQ-001","Name":"Sunita Devi","District":"Kothrud","People":6,"Help Type":"Food + Water","Status":"Pending","Time":"09:12"},
-        {"ID":"REQ-002","Name":"Ramesh Patil","District":"Hadapsar","People":3,"Help Type":"Medical","Status":"Dispatched","Time":"09:45"},
-        {"ID":"REQ-003","Name":"Kavita Joshi","District":"Pune North","People":12,"Help Type":"Evacuation","Status":"Pending","Time":"10:03"},
-        {"ID":"REQ-004","Name":"Suresh Nair","District":"Wakad","People":4,"Help Type":"Shelter","Status":"Pending","Time":"10:21"},
-    ])
+    districts = ["Kothrud","Hadapsar","Pune North","Wakad","Baner","Aundh","Hinjewadi","Viman Nagar"]
+    help_types = ["Food + Water","Medical","Evacuation","Shelter"]
+
+    first_names = ["Aarav","Vivaan","Aditya","Vihaan","Arjun","Sai","Krishna","Rohan","Aditi","Ananya","Isha","Meera","Riya","Siddhant","Neha","Rahul","Pooja","Kavita","Suresh","Ramesh"]
+    last_names = ["Patil","Sharma","Verma","Gupta","Deshmukh","Nair","Joshi","Kulkarni","Reddy","Mehta","Iyer","Singh"]
+
+    data = []
+    total_people = 0
+    i = 1
+
+    # generate until ~1000 people total
+    while total_people < 1000:
+        people = random.randint(2, 15)
+        total_people += people
+
+        name = f"{random.choice(first_names)} {random.choice(last_names)}"
+
+        data.append({
+            "ID": f"REQ-{i:03d}",
+            "Name": name,
+            "District": random.choice(districts),
+            "People": people,
+            "Help Type": random.choice(help_types),
+            "Status": random.choice(["Pending","Pending","Dispatched"]),
+            "Time": f"{random.randint(8,11)}:{random.randint(0,59):02d}"
+        })
+        i += 1
+
+    st.session_state.pending_requests = pd.DataFrame(data)
 
 if "dispatches" not in st.session_state:
     st.session_state.dispatches = []
@@ -54,7 +77,7 @@ def get_risk_level(df):
 # ─────────────────────────────────────────────
 def render_sidebar():
     with st.sidebar:
-        st.title("🛡️ DisasterNet")
+        st.title(" AI Disaster Resource Management System ")
 
         if st.button("📊 Dashboard"):
             st.session_state.nav = "dashboard"
@@ -66,20 +89,18 @@ def render_sidebar():
             st.session_state.nav = "inventory"
 
 # ─────────────────────────────────────────────
-# ADMIN DASHBOARD (FINAL UPGRADED)
+# ADMIN DASHBOARD
 # ─────────────────────────────────────────────
 def admin_dashboard():
     st.title("📊 Admin Dashboard")
 
     df = st.session_state.pending_requests
 
-    # ── RISK LEVEL ──
     risk, ratio = get_risk_level(df)
 
     st.markdown(f"### ⚠️ System Risk Level: **{risk}**")
     st.progress(min(ratio, 1.0))
 
-    # ── STATS ──
     st.metric("Total Requests", len(df))
     st.metric("Pending", len(df[df["Status"]=="Pending"]))
     st.metric("Dispatched", len(df[df["Status"]=="Dispatched"]))
@@ -87,24 +108,21 @@ def admin_dashboard():
 
     st.markdown("---")
 
-    # ── FILTER ──
     status_filter = st.selectbox("Filter", ["All","Pending","Dispatched"])
 
     filtered_df = df.copy()
     if status_filter != "All":
         filtered_df = df[df["Status"] == status_filter]
 
-    # ── CHARTS ──
     st.markdown("### 📊 Requests by District")
     st.bar_chart(filtered_df.groupby("District")["People"].sum())
 
-    st.markdown("### 📌 Status Distribution")
+    st.markdown("### 📦 Status Distribution")
     st.bar_chart(df["Status"].value_counts())
 
     st.markdown("### 📈 People Over Time")
     st.line_chart(df.groupby("Time")["People"].sum())
 
-    # ── MAP ──
     st.markdown("### 🗺️ Map View")
 
     district_coords = {
@@ -112,6 +130,10 @@ def admin_dashboard():
         "Hadapsar": (18.50, 73.93),
         "Kothrud": (18.50, 73.81),
         "Wakad": (18.60, 73.74),
+        "Baner": (18.56, 73.77),
+        "Aundh": (18.56, 73.81),
+        "Hinjewadi": (18.59, 73.73),
+        "Viman Nagar": (18.57, 73.91),
         "Malin Area": (19.03, 73.74),
         "Coastal Belt": (18.90, 72.80),
         "Other": (18.52, 73.85)
@@ -123,7 +145,6 @@ def admin_dashboard():
         map_df = pd.DataFrame(coords.tolist(), columns=["lat","lon"])
         st.map(map_df)
 
-    # ── INSIGHTS ──
     st.markdown("### 💡 Insights")
 
     if len(df) > 0:
@@ -133,7 +154,6 @@ def admin_dashboard():
         st.info(f"📍 Most affected district: **{most_affected}**")
         st.info(f"👥 Average people per request: **{avg_people:.2f}**")
 
-    # ── TABLE ──
     st.markdown("### 📋 Data")
     st.dataframe(filtered_df, use_container_width=True)
 
@@ -153,7 +173,4 @@ def main():
     elif st.session_state.nav == "inventory":
         st.info("Inventory page (you can expand this)")
 
-# ─────────────────────────────────────────────
-# RUN
-# ─────────────────────────────────────────────
 main()
