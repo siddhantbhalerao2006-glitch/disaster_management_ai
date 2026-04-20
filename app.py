@@ -142,7 +142,8 @@ def admin_dashboard():
 # MAIN ROUTER
 # ─────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🚨 DisasterNet")
+    st.markdown("## 🚨 AI disaster management system
+    ")
     if st.session_state.role is None:
         user_input = st.text_input("User Name")
         role_input = st.selectbox("Terminal Access", ["Citizen", "Admin"])
