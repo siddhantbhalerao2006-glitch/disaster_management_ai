@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Warehouse A",
+    "latitude": 18.52,
+    "longitude": 73.85,
+    "food_stock": 500
+  },
+  {
+    "id": 2,
+    "name": "Warehouse B",
+    "latitude": 18.60,
+    "longitude": 73.90,
+    "food_stock": 300
+  },
+  {
+    "id": 3,
+    "name": "Warehouse C",
+    "latitude": 18.55,
+    "longitude": 73.80,
+    "food_stock": 200
+  }
+]
