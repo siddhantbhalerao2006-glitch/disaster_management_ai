@@ -1,0 +1,6 @@
+Warehouse,City,State,Latitude,Longitude,Capacity,Food_Kits,Medicines,Water_Bottles,Blankets,Status
+Mumbai Central,Mumbai,Maharashtra,19.0760,72.8777,5000,1200,500,2000,700,Active
+Pune Relief Hub,Pune,Maharashtra,18.5204,73.8567,3000,800,300,1200,500,Active
+Delhi Emergency Depot,Delhi,Delhi,28.7041,77.1025,7000,2000,900,3500,1200,Active
+Chennai Rescue Center,Chennai,Tamil Nadu,13.0827,80.2707,4000,1000,400,1500,600,Active
+Kolkata Supply Point,Kolkata,West Bengal,22.5726,88.3639,3500,900,350,1300,450,Active

@@ -1,0 +1,2 @@
+Model accuracy:75%
+bharti@20062  supabase

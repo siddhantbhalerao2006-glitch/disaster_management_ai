@@ -7,3 +7,4 @@ rf_model.fit(X_train, y_train)  # X_train and y_train must be defined
 
 # Now save the model
 joblib.dump(rf_model, 'best_disaster_model.pkl')
+ 

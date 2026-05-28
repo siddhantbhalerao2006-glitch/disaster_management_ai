@@ -1,0 +1,51 @@
+🚀 Starting Disaster Model Training...
+✅ Dataset Loaded
+📊 Shape: (1500, 7)
+📂 Columns:
+['country', 'year', 'disaster_type', 'deaths', 'affected', 'magnitude', 'severity']
+✅ Encoders Saved
+📊 Features:
+['country_encoded', 'year', 'deaths', 'affected', 'magnitude', 'severity']
+🎯 Target:
+disaster_encoded
+✅ Data Split Complete
+🧠 Training Model...
+✅ Model Training Complete
+✅ Model Saved
+🔮 Predicting...
+
+📈 MODEL EVALUATION RESULTS
+========================================
+✅ Accuracy  : 0.7467
+✅ Precision : 0.7460
+✅ Recall    : 0.7467
+✅ F1 Score  : 0.7414
+
+📊 Classification Report:
+========================================
+              precision    recall  f1-score   support
+
+     Cyclone       0.72      0.61      0.66       103
+  Earthquake       0.78      0.72      0.74       102
+       Flood       0.75      0.93      0.83        95
+
+    accuracy                           0.75       300
+   macro avg       0.75      0.75      0.74       300
+weighted avg       0.75      0.75      0.74       300
+
+
+🧩 Confusion Matrix:
+[[63 19 21]
+ [20 73  9]
+ [ 5  2 88]]
+✅ Feature Importance Plot Saved
+
+🧠 Sample Predictions:
+========================================
+Actual: Flood | Predicted: Flood
+Actual: Flood | Predicted: Flood
+Actual: Cyclone | Predicted: Cyclone
+Actual: Cyclone | Predicted: Earthquake
+Actual: Flood | Predicted: Flood
+
+🎉 Training & Evaluation Completed Successfully
